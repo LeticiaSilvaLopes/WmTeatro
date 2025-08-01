@@ -34,25 +34,25 @@ export default function FlorestaViva() {
     <div className="min-h-screen bg-black text-white">
       {/* Hero Section */}
       <motion.section 
-        className="bg-black py-32"
+        className="bg-black py-6"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1 }}
       >
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.h1 
-            className="text-5xl md:text-7xl font-bold mb-8 text-green-400"
+            className="text-5xl md:text-7xl font-bold mb-8 bg-gradient-to-r from-green-700 via-green-500 to-green-600 bg-clip-text text-transparent leading-tight"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            ALÉM DA LUA
+            GRINCH
           </motion.h1>
         </div>
       </motion.section>
 
       {/* Sinopse Section */}
-      <section className="py-20 bg-black">
+      <section className="py-4 bg-black">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             className="text-center mb-16"
@@ -63,7 +63,7 @@ export default function FlorestaViva() {
           >
             <h2 className="text-4xl font-bold mb-8 text-white">SINOPSE</h2>
             <p className="text-xl text-gray-300 leading-relaxed mb-8">
-             Uma menina apaixonada pelo espaço embarca em uma aventura cósmica quando seu avô lhe conta uma história fantástica sobre extraterrestres e robôs. Ente memórias e imaginação, nasce uma jornada que conecta afeto, curiosidade e o universo das estrelas.
+              Pedrinho brinca no quintal, sem saber que o local está vheio de focos de dengue. O vilão Aedes Aegypti ataca, e Pedrinho logo sente os sintomas. Mas o Herói da Vigilância Sanitária chega a rempo para salvar PEdrinho e destruir o mosquito.
             </p>
             
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-left max-w-2xl mx-auto">

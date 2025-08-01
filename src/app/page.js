@@ -10,18 +10,21 @@ export default function Home() {
       titulo: "Alice no País das Maravilhas",
       imagem: "/images/Alice1.jpg",
       video: "/videos/Alice.mp4",
+      href: "/emocoes/alice-no-pais-das-maravilhas"
     },
     {
       id: 2,
       titulo: "Floresta Viva",
       imagem: "/images/FlorestaViva1.jpg",
       video: "/videos/FlorestaViva.mp4",
+      href: "/ecologia/floresta-viva"
     },
     {
       id: 3,
       titulo: "Coação de Tinta",
       imagem: "/images/CoracaoDeTinta1.jpg",
       video: "/videos/CoracaoDeTinta.mp4",
+      href: "/incentivo-leitura/coracao-de-tinta"
     }
   ];
 
@@ -119,7 +122,7 @@ export default function Home() {
                       {/* Botão na parte inferior */}
                       <div className="px-6 pb-6">
                         <br></br>
-                        <Link href="/contato">
+                        <Link href={espetaculo.href}>
                           <motion.button 
                             className="w-full bg-gradient-to-r from-purple-600 to-pink-600 text-white px-8 py-4 rounded-lg font-semibold hover:from-purple-700 hover:to-pink-700 transition-all duration-300 transform hover:scale-105"
                             whileHover={{ scale: 1.02 }}
