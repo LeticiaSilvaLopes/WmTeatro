@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import { motion } from 'framer-motion';
+import FAQ from '../components/FAQ';
 
 export default function Home() {
   const espetaculos = [
@@ -160,6 +161,9 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* FAQ Component - Mesmo FAQ em todas as páginas */}
+      <FAQ />
 
       {/* CTA Section */}
       <motion.section 

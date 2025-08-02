@@ -9,28 +9,72 @@ export default function FAQ({ bgColor = "bg-black" }) {
   // FAQ geral fixo para todas as páginas
   const faqItems = [
     {
-      question: "Como posso contratar um espetáculo?",
-      answer: "Entre em contato conosco através do formulário ou pelos nossos canais de comunicação. Faremos um orçamento personalizado para seu evento."
+      question: "Em qual local apresentamos?",
+      answer: "Dentro da escola, em locais cobertos, com tomadas, por exemplo, salas de aula, quadras, auditórios, anfiteatros entre outros."
     },
     {
-      question: "Qual o espaço necessário para as apresentações?",
-      answer: "Geralmente precisamos de um espaço mínimo de 4x4 metros, com acesso à energia elétrica. Alguns espetáculos podem ter necessidades específicas."
+      question: "O espetáculo é remunerado?",
+      answer: "Sim, podendo ser cobrado por pessoa ou com pacote fechado, porém não é cobrado nenhum tipo de sinal antecipado."
     },
     {
-      question: "As apresentações são adequadas para que idades?",
-      answer: "Nossos espetáculos são classificados por faixa etária. A maioria é adequada para crianças a partir de 4 anos, mas temos opções para todas as idades."
+      question: "Qual a duração de cada espetáculo?",
+      answer: "Em média duração é de 45 minutos podendo variar de acordo com a interação do público."
     },
     {
-      question: "Quanto tempo duram os espetáculos?",
-      answer: "A duração varia entre 30 a 50 minutos, dependendo do espetáculo escolhido e da interação com o público."
+      question: "O espetáculo é adaptável para cada idade?",
+      answer: "Sim, para os espetáculos infantis recomenda-se as cidades entre dois e 14 anos. As turmas podem ser divididas de acordo com cada idade e o texto será adaptado para cada turma."
     },
     {
-      question: "Vocês se apresentam em qualquer lugar?",
-      answer: "Sim! Levamos nossos espetáculos para escolas, teatros, eventos corporativos, festas e qualquer local adequado para a apresentação."
+      question: "Os professores pagam?",
+      answer: "Dentro da escola os professores são cortesia."
     },
     {
-      question: "Os espetáculos têm mensagem educativa?",
-      answer: "Sim! Todos nossos espetáculos abordam temas importantes como meio ambiente, valores sociais, cultura e educação de forma lúdica e divertida."
+      question: "É oferecido algum tipo de cortesia?",
+      answer: "Os filhos dos professores são convidados e possuem direito a cortesia sendo necessária apenas que a escola comunica a quantidade antecipadamente."
+    },
+    {
+      question: "Vocês têm equipamento próprio?",
+      answer: "Sim a companhia conta com o equipamento profissional desde caixas de som microfone esse efeito de luz e fumaça unindo a tecnologia de hologramas ao teatro tradicional com cenário expansível."
+    },
+    {
+      question: "Quando deve ser feito o pagamento?",
+      answer: "Após a última sessão administradora do grupo fará o acerto junto ao responsável financeiro contratante."
+    },
+    {
+      question: "Quanto tempo leva para fazer a montagem do cenário?",
+      answer: "A equipe leva por volta de 2 horas para realizar a montagem técnica. E o mesmo tempo para desmontagem."
+    },
+    {
+      question: "A companhia emite nota fiscal?",
+      answer: "Sim podemos fazer a nota fiscal quando solicitado pelo cliente."
+    },
+    {
+      question: "Em quais escolas vocês atendem?",
+      answer: "Escolas com ensino infantil e fundamental 1 podendo ser particular instituições ou teatro. O processo de setor público educacional envolve maior burocracia sendo necessária a contratação via prefeitura ou autorização da secretaria de educação."
+    },
+    {
+      question: "Quais os assuntos são abordados nos espetáculos?",
+      answer: "Todos os espetáculos da wm buscam abordar temas pedagógicos e de interesse escolar como preservação do meio ambiente, ecologia incentivo à leitura cultura tradicional brasileira e temas sociais como bullying, empatia e a popularização do teatro."
+    },
+    {
+      question: "Qual a classificação dos espetáculos?",
+      answer: "Classificação livre."
+    },
+    {
+      question: "Qual o gênero dos espetáculos?",
+      answer: "Teatro infantil / educacional."
+    },
+    {
+      question: "Quais os atrativos para crianças menores?",
+      answer: "Cenário colorido, elementos em neon, figurinos chamativos, fantoches, bonecos, trilha sonora envolvente, interação com o público."
+    },
+    {
+      question: "É necessário disponibilizar algum tipo de camarim ou vestuário?",
+      answer: "Não, a companhia integra junto ao cenário o camarim."
+    },
+    {
+      question: "Existe algum tipo de contrato?",
+      answer: "Sim, é feito um contrato para reservar a data e firmar as condições de ambas as partes como horários, valores e afins."
     }
   ];
 
