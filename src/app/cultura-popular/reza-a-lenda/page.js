@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import { useState } from 'react';
 import FAQ from '../../../components/FAQ';
+import Image from 'next/image';
 import FaleConosco from '../../../components/FaleConosco';
 
 export default function FlorestaViva() {
@@ -34,7 +35,7 @@ export default function FlorestaViva() {
     <div className="min-h-screen bg-black text-white">
       {/* Hero Section */}
       <motion.section 
-        className="bg-black py-32"
+        className="bg-black py-6"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1 }}
@@ -52,7 +53,7 @@ export default function FlorestaViva() {
       </motion.section>
 
       {/* Sinopse Section */}
-      <section className="py-20 bg-black">
+      <section className="py-4 bg-black">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             className="text-center mb-16"
@@ -113,10 +114,12 @@ export default function FlorestaViva() {
                     
                     {/* Para imagens */}
                     {media.type === 'image' ? (
-                        <img 
+                        <Image 
                         src={media.src}
                         alt={media.alt}
                         className="w-full h-48 object-cover"
+                        width={400}  
+                        height={300} 
                         />
                     ) : (
                         /* Para vídeos - usa o primeiro frame como thumbnail */
@@ -166,10 +169,12 @@ export default function FlorestaViva() {
             </button>
 
             {selectedMedia.type === 'image' ? (
-              <img 
+              <Image 
                 src={selectedMedia.src}
                 alt={selectedMedia.alt}
                 className="w-full h-auto rounded-lg"
+                width={400}  
+                height={300} 
               />
             ) : (
               <video 

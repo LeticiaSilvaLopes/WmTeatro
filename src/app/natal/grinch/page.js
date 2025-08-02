@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { useState } from 'react';
+import Image from 'next/image';
 import FAQ from '../../../components/FAQ';
 import FaleConosco from '../../../components/FaleConosco';
 
@@ -113,10 +114,12 @@ export default function FlorestaViva() {
                     
                     {/* Para imagens */}
                     {media.type === 'image' ? (
-                        <img 
+                        <Image 
                         src={media.src}
                         alt={media.alt}
                         className="w-full h-48 object-cover"
+                        width={400}  
+                        height={300} 
                         />
                     ) : (
                         /* Para vídeos - usa o primeiro frame como thumbnail */
@@ -166,10 +169,12 @@ export default function FlorestaViva() {
             </button>
 
             {selectedMedia.type === 'image' ? (
-              <img 
+              <Image 
                 src={selectedMedia.src}
                 alt={selectedMedia.alt}
                 className="w-full h-auto rounded-lg"
+                width={400}  
+                height={300} 
               />
             ) : (
               <video 
