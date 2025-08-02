@@ -6,21 +6,47 @@ import Image from 'next/image';
 import FAQ from '../../../components/FAQ';
 import FaleConosco from '../../../components/FaleConosco';
 
-export default function FlorestaViva() {
+export default function UmVilaoEmSeuQuintal() {
   const [selectedMedia, setSelectedMedia] = useState(null);
+  const [currentSlide, setCurrentSlide] = useState(0);
 
   // Array de mídia específico desta página
   const mediaItems = [
     {
       type: 'image',
-      src: '/images/FlorestaViva1.jpg',
+      src: '/images/UmVilaoEmSeuQuintal1.jpg',
       alt: 'Cena do espetáculo 1'
     },
     {
-      type: 'video',
-      videoSrc: '/videos/FlorestaViva.mp4',
-      alt: 'Vídeo do espetáculo 1'
-    }
+      type: 'image',
+      src: '/images/UmVilaoEmSeuQuintal2.jpg',
+      alt: 'Cena do espetáculo 2'
+    },
+    {
+      type: 'image',
+      src: '/images/UmVilaoEmSeuQuintal3.jpg',
+      alt: 'Cena do espetáculo 3'
+    },
+    {
+      type: 'image',
+      src: '/images/UmVilaoEmSeuQuintal4.jpg',
+      alt: 'Cena do espetáculo 4'
+    },
+    {
+      type: 'image',
+      src: '/images/UmVilaoEmSeuQuintal5.jpg',
+      alt: 'Cena do espetáculo 5'
+    },
+    {
+      type: 'image',
+      src: '/images/UmVilaoEmSeuQuintal6.jpg',
+      alt: 'Cena do espetáculo 6'
+    },
+    {
+      type: 'image',
+      src: '/images/UmVilaoEmSeuQuintal7.jpg',
+      alt: 'Cena do espetáculo 7'
+    },
   ];
 
   const openLightbox = (media) => {
@@ -29,6 +55,16 @@ export default function FlorestaViva() {
 
   const closeLightbox = () => {
     setSelectedMedia(null);
+  };
+
+  const nextSlide = () => {
+  setCurrentSlide(prev => 
+    prev < mediaItems.length - 3 ? prev + 1 : prev
+  );
+  };
+
+  const prevSlide = () => {
+    setCurrentSlide(prev => prev > 0 ? prev - 1 : prev);
   };
 
   return (
@@ -83,69 +119,98 @@ export default function FlorestaViva() {
             </div>
           </motion.div>
 
-          {/* Galeria de Mídia */}
-            <motion.div
-            className="mb-16"
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            viewport={{ once: true }}
-            >
-            <h3 className="text-3xl font-bold mb-8 text-center text-white">GALERIA</h3>
-            
-            {/* Grid responsivo que centraliza automaticamente */}
-            <div className={`grid gap-6 justify-items-center ${
-                mediaItems.length === 1 
-                ? 'grid-cols-1 max-w-sm mx-auto' 
-                : mediaItems.length === 2 
-                    ? 'grid-cols-1 md:grid-cols-2 max-w-2xl mx-auto'
-                    : mediaItems.length === 3
-                    ? 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3 max-w-4xl mx-auto'
-                    : 'grid-cols-1 md:grid-cols-2 lg:grid-cols-4'
-            }`}>
+        {/* Galeria de Mídia */}
+        <motion.div
+          className="mb-16"
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          viewport={{ once: true }}
+        >
+          <h3 className="text-3xl font-bold mb-8 text-center text-white">GALERIA</h3>
+          
+          {/* Container do Carrossel */}
+          <div className="relative max-w-6xl mx-auto">
+            {/* Área de visualização - mostra até 3 itens */}
+            <div className="overflow-hidden">
+              <div 
+                className="flex transition-transform duration-300 ease-in-out gap-6 px-4"
+                style={{ 
+                  transform: `translateX(-${currentSlide * 33.333}%)` // Move de 3 em 3
+                }}
+              >
                 {mediaItems.map((media, index) => (
-                <div 
+                  <div 
                     key={index} 
-                    className="relative group cursor-pointer w-full max-w-sm"
+                    className="relative group cursor-pointer flex-shrink-0 w-80" // Largura fixa como no print
                     onClick={() => openLightbox(media)}
-                >
+                  >
                     <div className="absolute inset-0 bg-gradient-to-r from-green-600 to-blue-600 rounded-lg blur opacity-25 group-hover:opacity-40 transition duration-300"></div>
                     <div className="relative bg-gray-900 rounded-lg overflow-hidden border border-gray-800">
-                    
-                    {/* Para imagens */}
-                    {media.type === 'image' ? (
+                      
+                      {/* Para imagens */}
+                      {media.type === 'image' ? (
                         <Image 
-                        src={media.src}
-                        alt={media.alt}
-                        className="w-full h-48 object-cover"
-                        width={400}  
-                        height={300} 
+                          src={media.src}
+                          alt={media.alt}
+                          className="w-full h-48 object-cover" // Mantém altura fixa
+                          width={400}  
+                          height={300} 
                         />
-                    ) : (
-                        /* Para vídeos - usa o primeiro frame como thumbnail */
+                      ) : (
+                        /* Para vídeos */
                         <div className="relative">
-                        <video 
+                          <video 
                             src={media.videoSrc}
                             className="w-full h-48 object-cover"
                             preload="metadata"
                             muted
-                        />
-                        
-                        {/* Ícone de Play para vídeos */}
-                        <div className="absolute inset-0 flex items-center justify-center">
+                          />
+                          
+                          {/* Ícone de Play para vídeos */}
+                          <div className="absolute inset-0 flex items-center justify-center">
                             <div className="bg-black bg-opacity-60 rounded-full p-4 group-hover:bg-opacity-80 transition-all">
-                            <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+                              <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
                                 <path d="M8 5v14l11-7z"/>
-                            </svg>
+                              </svg>
                             </div>
+                          </div>
                         </div>
-                        </div>
-                    )}
+                      )}
                     </div>
-                </div>
+                  </div>
                 ))}
+              </div>
             </div>
-            </motion.div>
+
+            {/* Botões de navegação - só aparecem se tiver mais de 3 itens */}
+            {mediaItems.length > 3 && (
+              <>
+                {/* Botão Anterior */}
+                <button
+                  onClick={prevSlide}
+                  disabled={currentSlide === 0}
+                  className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-60 hover:bg-opacity-80 text-white p-4 rounded-full border-2 border-cyan-400 hover:border-cyan-300 hover:shadow-cyan-400/50 hover:shadow-lg transition-all duration-300 disabled:opacity-30 disabled:cursor-not-allowed z-10 group"
+                >
+                  <svg className="w-5 h-5 transform group-hover:-translate-x-1 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M15 19l-7-7 7-7" />
+                  </svg>
+                </button>
+
+                {/* Botão Próximo */}
+                <button
+                  onClick={nextSlide}
+                  disabled={currentSlide >= mediaItems.length - 3}
+                  className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-60 hover:bg-opacity-80 text-white p-4 rounded-full border-2 border-cyan-400 hover:border-cyan-300 hover:shadow-cyan-400/50 hover:shadow-lg transition-all duration-300 disabled:opacity-30 disabled:cursor-not-allowed z-10 group"
+                >
+                  <svg className="w-5 h-5 transform group-hover:translate-x-1 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" />
+                  </svg>
+                </button>
+              </>
+            )}
+          </div>
+        </motion.div>
         </div>
       </section>
 

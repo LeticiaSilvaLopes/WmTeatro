@@ -13,12 +13,12 @@ export default function FlorestaViva() {
   const mediaItems = [
     {
       type: 'image',
-      src: '/images/FlorestaViva1.jpg',
+      src: '/images/RezaALenda1.jpg',
       alt: 'Cena do espetáculo 1'
     },
     {
       type: 'video',
-      videoSrc: '/videos/FlorestaViva.mp4',
+      videoSrc: '/videos/RezaALenda.mp4',
       alt: 'Vídeo do espetáculo 1'
     }
   ];
@@ -42,7 +42,12 @@ export default function FlorestaViva() {
       >
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.h1 
-            className="text-5xl md:text-7xl font-bold mb-8 text-green-400"
+            className="text-5xl md:text-7xl font-bold mb-8 bg-clip-text text-transparent leading-relaxed"
+            style={{
+              backgroundImage: 'linear-gradient(to right, #E8AD53, #D01622, #7D89ED)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent'
+            }}
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
