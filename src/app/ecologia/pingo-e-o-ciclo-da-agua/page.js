@@ -6,21 +6,13 @@ import Image from 'next/image';
 import FAQ from '../../../components/FAQ';
 import FaleConosco from '../../../components/FaleConosco';
 
-export default function FlorestaViva() {
+export default function PingoEOCicloDAgua() {
   const [selectedMedia, setSelectedMedia] = useState(null);
+  const [currentSlide, setCurrentSlide] = useState(0);
 
   // Array de mídia específico desta página
   const mediaItems = [
-    {
-      type: 'image',
-      src: '/images/FlorestaViva1.jpg',
-      alt: 'Cena do espetáculo 1'
-    },
-    {
-      type: 'video',
-      videoSrc: '/videos/FlorestaViva.mp4',
-      alt: 'Vídeo do espetáculo 1'
-    }
+    
   ];
 
   const openLightbox = (media) => {
@@ -29,6 +21,16 @@ export default function FlorestaViva() {
 
   const closeLightbox = () => {
     setSelectedMedia(null);
+  };
+
+  const nextSlide = () => {
+  setCurrentSlide(prev => 
+    prev < mediaItems.length - 3 ? prev + 1 : prev
+  );
+  };
+
+  const prevSlide = () => {
+    setCurrentSlide(prev => prev > 0 ? prev - 1 : prev);
   };
 
   return (
@@ -42,13 +44,18 @@ export default function FlorestaViva() {
       >
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.h1 
-            className="text-5xl md:text-7xl font-bold mb-8 text-green-400"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-          >
-            PINGO E O CICLO D'ÁGUA
-          </motion.h1>
+          className="text-5xl md:text-7xl font-bold mb-8 bg-clip-text text-transparent leading-relaxed"
+          style={{
+            backgroundImage: 'linear-gradient(to right, #1e3c72, #2a5298, #00b4db, #0083b0)',
+            WebkitBackgroundClip: 'text',
+            WebkitTextFillColor: 'transparent'
+          }}
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+        >
+          PINGO E O CICLO D'ÁGUA
+        </motion.h1>
         </div>
       </motion.section>
 
@@ -57,10 +64,9 @@ export default function FlorestaViva() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             className="text-center mb-16"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
           >
             <h2 className="text-4xl font-bold mb-8 text-white">SINOPSE</h2>
             <p className="text-xl text-gray-300 leading-relaxed mb-8">
@@ -82,72 +88,8 @@ export default function FlorestaViva() {
               </div>
             </div>
           </motion.div>
-
-          {/* Galeria de Mídia */}
-            <motion.div
-            className="mb-16"
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            viewport={{ once: true }}
-            >
-            <h3 className="text-3xl font-bold mb-8 text-center text-white">GALERIA</h3>
-            
-            {/* Grid responsivo que centraliza automaticamente */}
-            <div className={`grid gap-6 justify-items-center ${
-                mediaItems.length === 1 
-                ? 'grid-cols-1 max-w-sm mx-auto' 
-                : mediaItems.length === 2 
-                    ? 'grid-cols-1 md:grid-cols-2 max-w-2xl mx-auto'
-                    : mediaItems.length === 3
-                    ? 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3 max-w-4xl mx-auto'
-                    : 'grid-cols-1 md:grid-cols-2 lg:grid-cols-4'
-            }`}>
-                {mediaItems.map((media, index) => (
-                <div 
-                    key={index} 
-                    className="relative group cursor-pointer w-full max-w-sm"
-                    onClick={() => openLightbox(media)}
-                >
-                    <div className="absolute inset-0 bg-gradient-to-r from-green-600 to-blue-600 rounded-lg blur opacity-25 group-hover:opacity-40 transition duration-300"></div>
-                    <div className="relative bg-gray-900 rounded-lg overflow-hidden border border-gray-800">
-                    
-                    {/* Para imagens */}
-                    {media.type === 'image' ? (
-                        <Image 
-                        src={media.src}
-                        alt={media.alt}
-                        className="w-full h-48 object-cover"
-                        width={400}  
-                        height={300} 
-                        />
-                    ) : (
-                        /* Para vídeos - usa o primeiro frame como thumbnail */
-                        <div className="relative">
-                        <video 
-                            src={media.videoSrc}
-                            className="w-full h-48 object-cover"
-                            preload="metadata"
-                            muted
-                        />
-                        
-                        {/* Ícone de Play para vídeos */}
-                        <div className="absolute inset-0 flex items-center justify-center">
-                            <div className="bg-black bg-opacity-60 rounded-full p-4 group-hover:bg-opacity-80 transition-all">
-                            <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M8 5v14l11-7z"/>
-                            </svg>
-                            </div>
-                        </div>
-                        </div>
-                    )}
-                    </div>
-                </div>
-                ))}
-            </div>
-            </motion.div>
         </div>
-      </section>
+      </section> 
 
       {/* FAQ Component - Mesmo FAQ em todas as páginas */}
       <FAQ />
@@ -156,37 +98,55 @@ export default function FlorestaViva() {
       <FaleConosco />
 
       {/* Lightbox Modal */}
-      {selectedMedia && (
-        <div className="fixed inset-0 bg-black bg-opacity-90 z-50 flex items-center justify-center p-4">
-          <div className="relative max-w-4xl w-full">
-            <button
-              onClick={closeLightbox}
-              className="absolute -top-12 right-0 text-white hover:text-gray-300 transition-colors"
-            >
-              <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-              </svg>
-            </button>
-
-            {selectedMedia.type === 'image' ? (
-              <Image 
-                src={selectedMedia.src}
-                alt={selectedMedia.alt}
-                className="w-full h-auto rounded-lg"
-                width={400}  
-                height={300} 
-              />
-            ) : (
-              <video 
-                src={selectedMedia.videoSrc}
-                controls
-                autoPlay
-                className="w-full h-auto rounded-lg"
-              />
+            {selectedMedia && (
+              <div 
+                className="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center z-50 p-4"
+                onClick={closeLightbox}
+              >
+                {/* Container centralizado */}
+                <div 
+                  className="relative max-w-4xl max-h-[90vh] w-full h-full flex items-center justify-center"
+                  onClick={(e) => e.stopPropagation()} // Impede fechar ao clicar na mídia
+                >
+                  
+                  {/* Botão de Fechar - sempre visível */}
+                  <button
+                    onClick={closeLightbox}
+                    className="absolute top-4 right-4 bg-black bg-opacity-60 hover:bg-opacity-80 text-white p-3 rounded-full transition-all duration-300 z-10 group"
+                  >
+                    <svg className="w-6 h-6 group-hover:rotate-90 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                  </button>
+      
+                  {/* Conteúdo da mídia */}
+                  <div className="w-full h-full flex items-center justify-center">
+                    {selectedMedia.type === 'image' ? (
+                      <Image 
+                        src={selectedMedia.src}
+                        alt={selectedMedia.alt}
+                        width={1200}
+                        height={800}
+                        className="max-w-full max-h-full object-contain rounded-lg shadow-2xl"
+                        unoptimized
+                      />
+                    ) : (
+                      <video 
+                        src={selectedMedia.videoSrc}
+                        controls
+                        autoPlay
+                        className="max-w-full max-h-full object-contain rounded-lg shadow-2xl"
+                      />
+                    )}
+                  </div>
+      
+                  {/* Indicador de instrução (opcional) */}
+                  <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-black bg-opacity-60 text-white px-4 py-2 rounded-full text-sm">
+                    Clique fora da mídia ou no X para fechar
+                  </div>
+                </div>
+              </div>
             )}
-          </div>
-        </div>
-      )}
     </div>
   );
 }

@@ -6,8 +6,9 @@ import Image from 'next/image';
 import FAQ from '../../../components/FAQ';
 import FaleConosco from '../../../components/FaleConosco';
 
-export default function FlorestaViva() {
+export default function AlemDaLua() {
   const [selectedMedia, setSelectedMedia] = useState(null);
+  const [currentSlide, setCurrentSlide] = useState(0);
 
   // Array de mídia específico desta página
   const mediaItems = [
@@ -31,6 +32,16 @@ export default function FlorestaViva() {
     setSelectedMedia(null);
   };
 
+  const nextSlide = () => {
+  setCurrentSlide(prev => 
+    prev < mediaItems.length - 3 ? prev + 1 : prev
+  );
+  };
+
+  const prevSlide = () => {
+    setCurrentSlide(prev => prev > 0 ? prev - 1 : prev);
+  };
+
   return (
     <div className="min-h-screen bg-black text-white">
       {/* Hero Section */}
@@ -41,14 +52,20 @@ export default function FlorestaViva() {
         transition={{ duration: 1 }}
       >
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <motion.h1 
-            className="text-5xl md:text-7xl font-bold mb-8 text-green-400"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-          >
-            ALÉM DA LUA
-          </motion.h1>
+         <motion.h1 
+          className="text-5xl md:text-7xl font-bold mb-8 bg-clip-text text-transparent leading-relaxed relative"
+          style={{
+            backgroundImage: 'linear-gradient(45deg, #667eea, #764ba2, #f093fb)',
+            WebkitBackgroundClip: 'text',
+            WebkitTextFillColor: 'transparent',
+            filter: 'drop-shadow(0 0 20px rgba(102, 126, 234, 0.5))'
+          }}
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+        >
+          ALÉM DA LUA
+        </motion.h1>
         </div>
       </motion.section>
 
@@ -57,10 +74,9 @@ export default function FlorestaViva() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             className="text-center mb-16"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
           >
             <h2 className="text-4xl font-bold mb-8 text-white">SINOPSE</h2>
             <p className="text-xl text-gray-300 leading-relaxed mb-8">
@@ -83,69 +99,7 @@ export default function FlorestaViva() {
             </div>
           </motion.div>
 
-          {/* Galeria de Mídia */}
-            <motion.div
-            className="mb-16"
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            viewport={{ once: true }}
-            >
-            <h3 className="text-3xl font-bold mb-8 text-center text-white">GALERIA</h3>
-            
-            {/* Grid responsivo que centraliza automaticamente */}
-            <div className={`grid gap-6 justify-items-center ${
-                mediaItems.length === 1 
-                ? 'grid-cols-1 max-w-sm mx-auto' 
-                : mediaItems.length === 2 
-                    ? 'grid-cols-1 md:grid-cols-2 max-w-2xl mx-auto'
-                    : mediaItems.length === 3
-                    ? 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3 max-w-4xl mx-auto'
-                    : 'grid-cols-1 md:grid-cols-2 lg:grid-cols-4'
-            }`}>
-                {mediaItems.map((media, index) => (
-                <div 
-                    key={index} 
-                    className="relative group cursor-pointer w-full max-w-sm"
-                    onClick={() => openLightbox(media)}
-                >
-                    <div className="absolute inset-0 bg-gradient-to-r from-green-600 to-blue-600 rounded-lg blur opacity-25 group-hover:opacity-40 transition duration-300"></div>
-                    <div className="relative bg-gray-900 rounded-lg overflow-hidden border border-gray-800">
-                    
-                    {/* Para imagens */}
-                    {media.type === 'image' ? (
-                        <Image 
-                        src={media.src}
-                        alt={media.alt}
-                        className="w-full h-48 object-cover"
-                        width={400}  
-                        height={300} 
-                        />
-                    ) : (
-                        /* Para vídeos - usa o primeiro frame como thumbnail */
-                        <div className="relative">
-                        <video 
-                            src={media.videoSrc}
-                            className="w-full h-48 object-cover"
-                            preload="metadata"
-                            muted
-                        />
-                        
-                        {/* Ícone de Play para vídeos */}
-                        <div className="absolute inset-0 flex items-center justify-center">
-                            <div className="bg-black bg-opacity-60 rounded-full p-4 group-hover:bg-opacity-80 transition-all">
-                            <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M8 5v14l11-7z"/>
-                            </svg>
-                            </div>
-                        </div>
-                        </div>
-                    )}
-                    </div>
-                </div>
-                ))}
-            </div>
-            </motion.div>
+          
         </div>
       </section>
 

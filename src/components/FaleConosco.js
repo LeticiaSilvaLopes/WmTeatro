@@ -7,10 +7,9 @@ export default function FaleConosco({ bgColor = "bg-black" }) {
     <section className={`py-20 ${bgColor}`}>
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
+        initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 0.2 }}
         >
           <h2 className="text-4xl font-bold mb-12 text-center text-white">FALE CONOSCO</h2>
           
