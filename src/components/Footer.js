@@ -103,10 +103,10 @@ export default function Footer() {
             transition={{ duration: 0.6, delay: 0.6 }}
           >
             <p className="text-gray-400 text-sm">
-              © 2025 WM Teatro. Todos os direitos reservados.
+              © 2025 WM Teatro. Todos os direitos reservados. Política de Privacidade
             </p>
 
-            <p href='/politica-de-privacidade'>Política de Privacidade</p>
+            <p href='/politica-de-privacidade'></p>
           </motion.div>
         </div>
       </div>
