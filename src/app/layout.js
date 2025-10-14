@@ -25,8 +25,6 @@ export default function RootLayout({ children }) {
               textDecoration: "none",
               color: "inherit",
             }}
-            onMouseEnter={(e) => (e.target.style.textDecoration = "underline")}
-            onMouseLeave={(e) => (e.target.style.textDecoration = "none")}
           >
             Política de Privacidade
           </a>
