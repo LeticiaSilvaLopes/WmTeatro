@@ -106,7 +106,7 @@ export default function Footer() {
               © 2025 WM Teatro. Todos os direitos reservados.
             </p>
 
-            <a href='/politica-de-privacidade'>Política de Privacidade</a>
+            <p href='/politica-de-privacidade'>Política de Privacidade</p>
           </motion.div>
         </div>
       </div>
