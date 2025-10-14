@@ -3,7 +3,6 @@
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import FAQ from '../components/FAQ';
-import FaleConosco from '../components/FaleConosco';
 
 export default function Home() {
   const espetaculos = [
@@ -77,9 +76,10 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.h2 
             className="text-4xl font-bold text-center text-white mb-20"
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
           >
             Espetáculos em Destaque
           </motion.h2>
@@ -91,10 +91,10 @@ export default function Home() {
                 className={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-stretch ${
                   index % 2 === 1 ? 'lg:flex-row-reverse' : ''
                 }`}
-                initial={{ opacity: 0, y: 50 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.2 }}
+                initial={{ opacity: 0, y: 100 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -100 }}
+                transition={{ duration: 0.8, delay: index * 0.2 }}
                 viewport={{ once: true, margin: "-100px" }}
               >
                 {/* Bloco da Imagem + Título + Botão */}
@@ -165,7 +165,48 @@ export default function Home() {
       {/* FAQ Component - Mesmo FAQ em todas as páginas */}
       <FAQ />
 
-      <FaleConosco />
+      {/* CTA Section */}
+      <motion.section 
+        className="bg-black py-20"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 1 }}
+        viewport={{ once: true }}
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <motion.h2 
+            className="text-4xl font-bold mb-8 text-white"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            Leve Arte e Educação para sua Escola
+          </motion.h2>
+          <motion.p 
+            className="text-xl mb-10 text-purple-300"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            viewport={{ once: true }}
+          >
+            Entre em contato conosco e agende uma apresentação
+          </motion.p>
+          <Link href="/contato">
+            <motion.button 
+              className="bg-purple-600 text-white px-10 py-4 rounded-lg font-bold text-lg hover:bg-purple-700 transition-all duration-300 transform hover:scale-105"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              viewport={{ once: true }}
+            >
+              Falar Conosco
+            </motion.button>
+          </Link>
+        </div>
+      </motion.section>
     </div>
   );
 }

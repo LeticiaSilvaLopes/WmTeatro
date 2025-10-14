@@ -61,7 +61,8 @@ export default function Header() {
         { name: 'Além da Lua', href: '/sistema-solar/alem-da-lua' }
       ]
     },
-    { name: 'Perguntas Frequentes', href: '/perguntas-frequentes' }
+    { name: 'Perguntas Frequentes', href: '/perguntas-frequentes' },
+    { name: 'Política de Privacidade', href: '/politica-de-privacidade' }
   ];
 
   const handleDropdownToggle = (index) => {
