@@ -19,7 +19,7 @@ export default function RootLayout({ children }) {
         </main>
         <footer className="bg-black border-t border-gray-800 text-white py-8 text-center">
           <p>&copy; 2025 <span className="text-purple-400">WM Teatro</span>. Todos os direitos reservados.</p>
-          <p href='/politica-de-privacidade'>Política de Privacidade</p>
+          <a href='/politica-de-privacidade'>Política de Privacidade</a>
         </footer>
       </body>
     </html>
