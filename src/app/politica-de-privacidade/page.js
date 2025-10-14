@@ -39,38 +39,48 @@ export default function PoliticaDePrivacidade() {
           >
             
             <p className="text-xl text-gray-300 leading-relaxed mb-8">
-                Política de Privacidade — WM Teatro
-
                 A sua privacidade é importante para nós.
                 Esta Política de Privacidade explica como coletamos, usamos e protegemos as informações fornecidas pelos visitantes do nosso site.
-
+            </p>
+            <p className="text-white font-semibold">
                 Coleta de informações
-
+            </p>
+            <p className="text-xl text-gray-300 leading-relaxed mb-8">
                 Coletamos apenas os dados pessoais enviados voluntariamente através do formulário de contato:
                 nome, e-mail, telefone, nome da escola e mensagem.
                 Essas informações são utilizadas exclusivamente para responder às solicitações de orçamento ou dúvidas sobre nossos espetáculos.
-
+            </p>
+            <p className="text-white font-semibold">
                 Uso das informações
-
+            </p>
+            <p className="text-xl text-gray-300 leading-relaxed mb-8">
                 Os dados coletados são usados apenas para fins de comunicação direta entre o WM Teatro e o interessado.
                 Não compartilhamos, vendemos ou divulgamos suas informações pessoais a terceiros.
-
+            </p>
+            <p className="text-white font-semibold">
                 Cookies e ferramentas de análise
-
+            </p>
+            <p className="text-xl text-gray-300 leading-relaxed mb-8">
                 Podemos utilizar cookies e ferramentas como o Google Analytics ou Google Ads para entender o uso do site e melhorar nossos serviços.
                 Esses dados são coletados de forma anônima.
-
+            </p>  
+            <p className="text-white font-semibold">
                 Segurança
-
+            </p>
+            <p className="text-xl text-gray-300 leading-relaxed mb-8">
                 Adotamos medidas de segurança para proteger suas informações contra acessos não autorizados.
-
+            </p>
+            <p className="text-white font-semibold">
                 Contato
-
+            </p>
+            <p className="text-xl text-gray-300 leading-relaxed mb-8">
                 Se desejar excluir ou alterar seus dados, entre em contato pelo e-mail:
                 📧 wmteatro@gmail.com
-
+            </p>
+            <p className="text-white font-semibold">
                 Atualizações desta política
-
+            </p>
+            <p className="text-xl text-gray-300 leading-relaxed mb-8">
                 Podemos atualizar esta Política de Privacidade periodicamente.
                 Recomendamos que você a consulte regularmente para se manter informado.
             </p>
