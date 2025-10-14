@@ -105,6 +105,8 @@ export default function Footer() {
             <p className="text-gray-400 text-sm">
               © 2025 WM Teatro. Todos os direitos reservados.
             </p>
+
+            <a href='/politica-de-privacidade'>Política de Privacidade</a>
           </motion.div>
         </div>
       </div>
