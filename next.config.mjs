@@ -16,6 +16,8 @@ const nextConfig = {
   eslint: {
     ignoreDuringBuilds: true,
   },
+  output: 'export',
+  trailingSlash: true, // 👈 faz com que /contato gere /contato/index.html
 }
 
 export default nextConfig; // 👈 EXPORT DEFAULT (não module.exports)
